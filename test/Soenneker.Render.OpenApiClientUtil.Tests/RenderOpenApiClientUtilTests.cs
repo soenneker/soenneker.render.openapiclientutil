@@ -1,20 +1,19 @@
 using Soenneker.Render.OpenApiClientUtil.Abstract;
-using Soenneker.Tests.FixturedUnit;
-using Xunit;
+using Soenneker.Tests.HostedUnit;
 
 namespace Soenneker.Render.OpenApiClientUtil.Tests;
 
-[Collection("Collection")]
-public sealed class RenderOpenApiClientUtilTests : FixturedUnitTest
+[ClassDataSource<Host>(Shared = SharedType.PerTestSession)]
+public sealed class RenderOpenApiClientUtilTests : HostedUnitTest
 {
     private readonly IRenderOpenApiClientUtil _openapiclientutil;
 
-    public RenderOpenApiClientUtilTests(Fixture fixture, ITestOutputHelper output) : base(fixture, output)
+    public RenderOpenApiClientUtilTests(Host host) : base(host)
     {
         _openapiclientutil = Resolve<IRenderOpenApiClientUtil>(true);
     }
 
-    [Fact]
+    [Test]
     public void Default()
     {
 
