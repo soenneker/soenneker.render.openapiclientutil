@@ -10,5 +10,10 @@ namespace Soenneker.Render.OpenApiClientUtil.Abstract;
 /// </summary>
 public interface IRenderOpenApiClientUtil: IDisposable, IAsyncDisposable
 {
+    /// <summary>
+    /// Gets the value.
+    /// </summary>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>A task containing the result of the operation.</returns>
     ValueTask<RenderOpenApiClient> Get(CancellationToken cancellationToken = default);
 }
