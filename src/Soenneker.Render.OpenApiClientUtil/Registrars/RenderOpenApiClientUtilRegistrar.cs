@@ -6,12 +6,12 @@ using Soenneker.Render.OpenApiClientUtil.Abstract;
 namespace Soenneker.Render.OpenApiClientUtil.Registrars;
 
 /// <summary>
-/// Registers the OpenAPI client utility for dependency injection.
+/// Registers the lazily initialized Render API client.
 /// </summary>
 public static class RenderOpenApiClientUtilRegistrar
 {
     /// <summary>
-    /// Adds <see cref="RenderOpenApiClientUtil"/> as a singleton service. <para/>
+    /// Adds the Render API client utility as a singleton service. <para/>
     /// </summary>
     public static IServiceCollection AddRenderOpenApiClientUtilAsSingleton(this IServiceCollection services)
     {
@@ -22,7 +22,7 @@ public static class RenderOpenApiClientUtilRegistrar
     }
 
     /// <summary>
-    /// Adds <see cref="RenderOpenApiClientUtil"/> as a scoped service. <para/>
+    /// Adds the Render API client utility as a scoped service backed by the singleton HTTP client provider. <para/>
     /// </summary>
     public static IServiceCollection AddRenderOpenApiClientUtilAsScoped(this IServiceCollection services)
     {

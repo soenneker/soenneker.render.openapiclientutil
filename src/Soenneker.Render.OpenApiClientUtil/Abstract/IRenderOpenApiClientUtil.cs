@@ -6,14 +6,25 @@ using System.Threading.Tasks;
 namespace Soenneker.Render.OpenApiClientUtil.Abstract;
 
 /// <summary>
-/// Exposes a cached OpenAPI client instance.
+/// Provides a lazily initialized Render API client.
 /// </summary>
-public interface IRenderOpenApiClientUtil: IDisposable, IAsyncDisposable
+public interface IRenderOpenApiClientUtil : IDisposable, IAsyncDisposable
 {
     /// <summary>
-    /// Gets the value.
+    /// Gets the shared client for this utility instance.
     /// </summary>
     /// <param name="cancellationToken">The cancellation token.</param>
     /// <returns>A task containing the result of the operation.</returns>
     ValueTask<RenderOpenApiClient> Get(CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Releases resources used by the current instance.
+    /// </summary>
+    new void Dispose();
+
+    /// <summary>
+    /// Asynchronously releases resources used by the current instance.
+    /// </summary>
+    /// <returns>A task that represents the asynchronous operation.</returns>
+    new ValueTask DisposeAsync();
 }
