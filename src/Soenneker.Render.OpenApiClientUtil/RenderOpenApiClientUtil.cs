@@ -12,6 +12,7 @@ using Soenneker.Utils.AsyncSingleton;
 
 namespace Soenneker.Render.OpenApiClientUtil;
 
+/// <inheritdoc cref="IRenderOpenApiClientUtil" />
 public sealed class RenderOpenApiClientUtil : IRenderOpenApiClientUtil
 {
     private readonly AsyncSingleton<RenderOpenApiClient> _client;
